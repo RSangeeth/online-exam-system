@@ -1,0 +1,83 @@
+    <html>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title> Register </title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">		
+	</head>
+	
+	<body><br>
+	  <CENTER><h1 style="color:rgb(24, 24, 24);">Sri Shakthi Institute Of Engineering And Technology</h1></CENTER><br>
+	  <CENTER><h3 style="color:rgb(24, 24, 24);">ONLINE EXAMINATION PORTAL</h3></CENTER>
+	<br><br>
+	 
+	    <title>Auth</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+		</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./css/main.css">	 
+		<head>
+	    <script type="text/javascript">
+		$(document).ready( () => {
+        $( "#form1" ).submit( (event) => {
+				event.preventDefault();
+				$.ajax({
+					type: 'POST',
+					url: '/',
+					data: $('#form1').serialize(),
+					dataType: "json",
+					success: (response) => {
+						//alert("a");
+						//console.log(response.Success);
+						$('#form1')[0].reset();
+
+						document.getElementById("check").innerHTML=response.Success;
+         					//ADD THIS CODE
+         					setTimeout( () => {
+         						document.getElementById("check").innerHTML="";
+         					},3000);
+         					if (response.Success=="You are regestered,You can login now.") {
+         						document.getElementById("aa").click();
+         					};
+         				},
+         				error: () => {
+         				}
+         			})
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="col-md-4 col-md-offset-4">
+		<div>
+			<p>Register Now
+			</p>
+		</div>
+		<div class="form-group">
+			<form id="form1" method="post">
+				<input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+				<input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
+				<input type="text" name="year" placeholder="Year Of Studying" required="" class="form-control"><br/>
+				<input type="text" name="dept" placeholder="Department" required="" class="form-control"><br/>
+				<input type="text" name="place" placeholder="Comming from" required="" class="form-control"><br/>
+				<input type="number" name="mobnum" placeholder="Mob Number" required="" class="form-control"><br/>
+				<input type="text" name="dateofj" placeholder="date of join" required=""class="form-control" onfocus="(this.type='date')"/> <br/>
+				<input type="text" name="dateofb" placeholder="date of birth" required=""class="form-control" onfocus="(this.type='date')"/> <br/>
+				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+				<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+				<input type="submit" value="Register" class="btn btn-success">
+			</form>
+		    </div>
+        	<div class="mssg bg-danger">
+			<span id="check"></span>
+		    </div>
+		    <div>
+			<span>Already Registered! <a href="/login">Login</a></span>
+		</div>
+		<div id="LangTable"><a href="/login" id="aa"></a>
+		</div>
+		</div>
+		 
+		</body>
+        </html>

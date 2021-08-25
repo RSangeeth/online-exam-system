@@ -1,0 +1,87 @@
+<%- include ('header.ejs') -%>
+    <!---------------------------------------------------------------------------------------------------------->
+      
+    <div class="container">
+    <div class="row">
+    <div class="col-md-7 ">
+    <div class="panel panel-default">
+    <div class="panel-heading">  <h4 >User Profile</h4></div>
+    <div class="panel-body">      
+    <div class="box box-info">      
+    <div class="box-body">
+    <div class="col-sm-6">
+        <div id="profile-container">
+          <image id="profileImage" src="./image/profile.jpeg" />
+       </div>
+       <input id="imageUpload" type="file" 
+              name="profile_photo" placeholder="Photo" required="" capture>
+    <br>
+    </div> 
+    <div class="col-sm-6">
+    <b><h1 style="color:#000000;"> <%= name %> </h1></span> </b>        
+    </div>
+    
+  <b>
+    <div class="clearfix"></div>
+    <hr style="margin:5px 0 5px 0;">             
+    <div class="col-sm-5 col-xs-6 tital " >Name:</div><center><%= name %><div class="col-sm-7 col-xs-6 "></div> </center>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+ 
+    <div class="col-sm-5 col-xs-6 tital " >Year:</div><center><%= year %><div class="col-sm-7"></div></center>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    
+    <div class="col-sm-5 col-xs-6 tital " >Dept:</div><center><%= dept %><div class="col-sm-7"></div></center>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+    <div class="col-sm-5 col-xs-6 tital " >Place:</div><center><%= place %><div class="col-sm-7"></div></center>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+    <div class="col-sm-5 col-xs-6 tital " >Mob Number:</div><center><%= mobnum %><div class="col-sm-7"></div></center>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    
+    <div class="col-sm-5 col-xs-6 tital " >Date Of Joining:</div><center><%= dateofj %><div class="col-sm-7"></div></center>
+    <div class="clearfix"></div>
+    <div class="bot-border"></div>
+    
+    <div class="col-sm-5 col-xs-6 tital " >Date Of Birth:</div><center><%= dateofb %><div class="col-sm-7"></div></center>
+     <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+    <div class="col-sm-5 col-xs-6 tital " >Email:</div><center><%= email %><div class="col-sm-7"></div></center>
+    </b>
+    </div>
+    </div>  
+    </div> 
+    </div>
+    </div>  
+        <script>
+                $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#imageUpload").change(function(){
+    fasterPreview( this );
+});
+</script> 
+</div>
+</div>  
+</html>
+         
+    
+    
+    
+    
+    
+             
